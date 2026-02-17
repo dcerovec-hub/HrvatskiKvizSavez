@@ -15,15 +15,15 @@ The tech used is SQL Server Management Studio. The model is designed as a star s
 
 Dimension tables:
 ```text
-Categories – categoryID (PK), name
-Players – playerID (PK), name
-Quizes – quizID (PK), name, date, maxpoints, author
-Venues – venueID (PK), city, country, latitude, longitude
+Categories – categoryID (PK), name - 14 rows
+Players – playerID (PK), name - 904 rows
+Quizes – quizID (PK), name, date, maxpoints, author - 93 rows
+Venues – venueID (PK), city, country, latitude, longitude - 38 rows
 ```
 Fact tables:
 ```text
-Scores – scoreID (PK), quizID (FK), playerID (FK), venueID (FK), rank, points
-CategoryScores – scoreID (PK), categoryID (FK), points
+Scores – scoreID (PK), quizID (FK), playerID (FK), venueID (FK), rank, points - 7836 rows
+CategoryScores – scoreID (PK), categoryID (FK), points - 56875 rows
 ```
 
 ## 3. ETL Process
@@ -188,14 +188,16 @@ ORDER BY Broj12ica DESC;
 
 The technology used is Microsoft Power BI. Six report pages were generated: https://tinyurl.com/HR-12x7
 
-Page 1: table view of all HR-12x7 quizzes played, sorted by percentage of correct answers.
+```text
+Page 1: HR-12x7 table view of all quizzes played, sorted by percentage of correct answers
 
-Page 2: graph of number of players and percentage of correct answers for each HR-12x7 quiz chronologically; players with the most appearances
+Page 2: HR-12x7 number of players and percentage of correct answers for each quiz chronologically; players with the most appearances
 
-Page 3: top ten HR-12x7 quizzes players who had more than 10 appearances
+Page 3: HR-12x7 top 10 players with more than 10 quizzes played
 
-Page 4: top five HR-12x7 quizzes players in each category who had more than 10 appearances
+Page 4: HR-12x7 top 5 players in each category with more than 10 quizzes played
 
-Page 5: number of different HR-12x7 quizzes players by city
+Page 5: HR-12x7 number of different players in each city
 
-Page 6: ratio of category to total points for players who played more than 6 HR-12x7 quizzes
+Page 6: HR-12x7 ratio of each category (use slicer) to total points for players with more than 5 quizzes played
+```
